@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>PI - Monte Carlo</title>
+
+  <link href="./style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+  <script src="./script.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col-12 text-center">
+        <h1>Estimating Pi using Monte Carlo Simulation</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <p><b>Description</b>: The "Monte Carlo Method" is a method of solving problems using statistics. Given the
+          probability, P, that an event will occur in certain conditions, a computer can be used to generate those
+          conditions repeatedly. The number of times the event occurs divided by the number of times the conditions
+          are
+          generated should be approximately equal to P.</p>
+        <p>If a circle of radius R is inscribed inside a square with side length 2R, then the area of the circle will
+          be pi*R^2 and the area of the square will be (2R)^2. So the ratio of the area of the circle to the area
+          of the square will be pi/4. This means that, if you pick N points at random inside the square,
+          approximately
+          N*pi/4 of those points should fall inside the circle.
+          This program picks points at random inside the square. It then checks to see if the point is inside the
+          circle (it knows it's inside the circle if x^2 + y^2 &lt; R^2, where x and y are the coordinates of the
+          point
+          and R is the radius of the circle). The program keeps track of how many points it's picked so far (N) and
+          how many of those points fell inside the circle (M).</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="squareLength">Square length</label>
+          <input type="number" class="form-control" id="squareLength" placeholder="Square length" value="300">
+          <small class="form-text text-muted">In pixels</small>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="form-group">
+          <label for="totalPoints">Number of points to generate</label>
+          <input type="number" class="form-control" id="totalPoints" placeholder="Number of points" value="10">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <button type="button" class="btn btn-success" onclick="estimatePi()">Estimate Pi number</button>
+      </div>
+      <div class="col-6 my-auto">
+        pi = <span id="pi_output" class="font-weight-bold">0</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <canvas id="_canvas">
+          Twoja przeglądarka nie obsługuje elementu Canvas.
+        </canvas>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
